@@ -9,7 +9,7 @@ export const SCHEMA = `
   CREATE TABLE IF NOT EXISTS users (
     id   TEXT PRIMARY KEY,
     name TEXT NOT NULL,
-    role TEXT NOT NULL CHECK (role IN ('reader', 'editor', 'operator'))
+    role TEXT NOT NULL CHECK (role IN ('viewer', 'agent', 'lead'))
   );
 
   CREATE TABLE IF NOT EXISTS flags (
@@ -23,14 +23,25 @@ export const SCHEMA = `
     created_at          TEXT NOT NULL
   );
 
+  CREATE TABLE IF NOT EXISTS refunds (
+    id           INTEGER PRIMARY KEY AUTOINCREMENT,
+    reference    TEXT NOT NULL UNIQUE,
+    amount_cents INTEGER NOT NULL,
+    status       TEXT NOT NULL CHECK (status IN ('pending', 'approved', 'denied')) DEFAULT 'pending',
+    request_note TEXT NOT NULL DEFAULT '',
+    created_at   TEXT NOT NULL,
+    decided_at   TEXT
+  );
+
   CREATE TABLE IF NOT EXISTS audit_events (
-    id          INTEGER PRIMARY KEY AUTOINCREMENT,
-    at          TEXT NOT NULL,
-    actor_id    TEXT NOT NULL REFERENCES users(id),
-    action      TEXT NOT NULL CHECK (action IN ('create', 'enable', 'disable')),
-    flag_key    TEXT NOT NULL REFERENCES flags(key),
-    environment TEXT CHECK (environment IN ('development', 'staging', 'production') OR environment IS NULL),
-    reason      TEXT
+    id           INTEGER PRIMARY KEY AUTOINCREMENT,
+    at           TEXT NOT NULL,
+    actor_id     TEXT NOT NULL REFERENCES users(id),
+    subject_type TEXT NOT NULL CHECK (subject_type IN ('flag', 'refund')),
+    subject_id   TEXT NOT NULL,
+    action       TEXT NOT NULL CHECK (action IN ('create', 'enable', 'disable', 'approve', 'deny')),
+    environment  TEXT CHECK (environment IN ('development', 'staging', 'production') OR environment IS NULL),
+    reason       TEXT
   );
 `;
 
