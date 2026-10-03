@@ -1,5 +1,4 @@
 node_modules/
 flags.db
 flags.db-*
-scripts/.dispatch-state.json
 .env
