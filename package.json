@@ -1,0 +1,15 @@
+{
+  "name": "feature-flag-admin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Feature flag admin prototype — thin internal app with authorization rules and an append-only audit trail.",
+  "scripts": {
+    "seed": "node src/seed.js",
+    "dev": "node src/server.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
