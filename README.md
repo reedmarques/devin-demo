@@ -1,10 +1,17 @@
-# FinTechCompany Internal Tools
+# Cognition Internal Tools
 
 Prototype internal tools: a **refunds dashboard** (default screen) and a
 **feature flag admin** (second nav item). Both share one shell, one actor
 header, one SQLite database, and one append-only audit table.
 
 A decision updates status in SQLite. It does not move money.
+
+Both tools use a shared, always-on dark theme with Cognition branding.
+The local logo comes from the [official Cognition brand assets](https://cognition.ai/brand),
+with its background removed for use on dark surfaces. The seeded `dark_mode`
+flag is demo data, not a theme control.
+
+Contributor: [reedmarques](https://github.com/reedmarques).
 
 ## Run it
 
