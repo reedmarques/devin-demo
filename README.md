@@ -7,8 +7,9 @@ header, one SQLite database, and one append-only audit table.
 A decision updates status in SQLite. It does not move money.
 
 Both tools use a shared, always-on light theme with Cognition branding.
-The local logo comes from the [official Cognition brand assets](https://cognition.ai/brand),
-recolored via `currentColor` so it follows the text color on any theme. The seeded `dark_mode`
+The local logo is `COGNITION_LOCKUP_HORIZONTAL_WHITE.svg` from the
+[official Cognition brand assets](https://cognition.ai/brand) (the white-background variant
+ships black artwork), with the background rect removed. The seeded `dark_mode`
 flag is demo data, not a theme control.
 
 Contributor: [reedmarques](https://github.com/reedmarques).
