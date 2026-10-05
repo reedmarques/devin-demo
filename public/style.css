@@ -66,7 +66,7 @@ nav { display: flex; gap: 4px; }
 .nav-item:hover { background: var(--surface-hover); filter: none; }
 .nav-item.active { background: var(--accent-soft); color: var(--link); }
 
-.brand-logo { display: block; width: 168px; height: auto; }
+.brand-logo { display: block; height: 43px; width: auto; }
 
 .brand-sub {
   font-size: 13px;

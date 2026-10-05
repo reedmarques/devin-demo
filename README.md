@@ -1,4 +1,4 @@
-# Cognition Internal Tools
+# Devin Internal Tools
 
 Prototype internal tools: a **refunds dashboard** (default screen) and a
 **feature flag admin** (second nav item). Both share one shell, one actor
@@ -6,8 +6,8 @@ header, one SQLite database, and one append-only audit table.
 
 A decision updates status in SQLite. It does not move money.
 
-Both tools use a shared, always-on light theme with Cognition branding.
-The local logo is `COGNITION_LOCKUP_HORIZONTAL_WHITE.svg` from the
+Both tools use a shared, always-on light theme with Devin branding.
+The local logo is `DEVIN_LOCKUP_HORIZONTAL_WHITE.svg` from the
 [official Cognition brand assets](https://cognition.ai/brand) (the white-background variant
 ships black artwork), with the background rect removed. The seeded `dark_mode`
 flag is demo data, not a theme control.
